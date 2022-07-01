@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "746340284952",
+    "project_id": "ghrc-app",
+    "storage_bucket": "ghrc-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746340284952:android:0d9a839a711d614acb616d",
+        "android_client_info": {
+          "package_name": "com.ghrc.abu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746340284952-e7vgjtob4b6rsn19jsk4itn8k5apd9g8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghrc.abu",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "746340284952-sdqlnpesmdj70g3oi258h2rqqs0ja72v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghrc.abu",
+            "certificate_hash": "33ae5cad388cb3836d4dd7821595f8ea2d55ba03"
+          }
+        },
+        {
+          "client_id": "746340284952-hv95outgm19n8s70eruav1jl0kq6pa15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXimnGQBTwwAg-Z_OBYyaXiTkD2gMF_k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746340284952-hv95outgm19n8s70eruav1jl0kq6pa15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
