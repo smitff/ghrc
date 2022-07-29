@@ -1,5 +1,5 @@
 
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useStatxe} from 'react';
 import {  SafeAreaView, View,  } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeStackNavigatior from './src/navigation/HomeNavigation';

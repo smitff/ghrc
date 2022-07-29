@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { StyleSheet, Text, View, Image, ScrollView, Linking } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, Linking,Dimensions } from 'react-native'
 import { ApiUtils, ImageService } from '../utils/ApiUtils';
 import { ColorUtil } from '../utils/ColourUtils'
 import { ResponsiveUtil } from '../utils/ResponsiveUtils';
@@ -8,7 +8,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import Share from 'react-native-share';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import axios from 'axios';
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const DoctorsDetailScreen = ({ route, navigation }) => {
     const { id } = route.params;
@@ -105,35 +106,76 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
             </View>
 
             <View style={{
-                flex: 1
+                flex: 1,
+            
             }}>
 
-                <Image
-                    style={{
-                        width: "100%",
-                        height: ResponsiveUtil.height(500)
-                    }}
-                    source={{
-                        uri: `${ImageService.doctor}${dr.Image}`
-                    }} />
-                <ScrollView style={{
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
-                    marginTop: -50,
+                <View style={{
+                    flex: 0.32,
+                    width: '100%',
+                    // backgroundColor:"yellow"
+                }}>
+
+
+                    <View style={{
+                        // borderRadius:"50%",
+                        // backgroundColor:"yellow",
+                        width:200,
+                        height:200,
+                        alignSelf:"center",
+                        // borderRadius:100,
+                        marginTop: 8,
+                    }}>
+                        <Image
+                            style={{
+                                width: "100%",
+                                // flex:0.4,
+                                // height: ResponsiveUtil.height(500)
+                                height: "100%",
+                                // borderRadius:windowWidth/2,
+                                alignSelf: 'center',
+                                borderRadius: 100,
+                            }}
+                            source={{
+                                uri: `${ImageService.doctor}${dr.Image}`
+                            }}
+                            // resizeMode="stretch"
+                            resizeMode="cover"
+                            />
+                    </View>    
+
+                </View>
+                
+                
+                <View style={{
+                    // borderTopLeftRadius: 20,
+                    // borderTopRightRadius: 20,
+                    // marginTop: -50,
                     backgroundColor: ColorUtil.white,
-                    padding: ResponsiveUtil.width(10)
+                    padding: ResponsiveUtil.width(10),
+                    paddingTop: ResponsiveUtil.height(12),
+                    // backgroundColor:'yellow',
+                    flex:0.68,
+                    // backgroundColor: "yellow",
+                    
+
 
                 }}>
                     <View style={{
                         marginHorizontal: ResponsiveUtil.width(10),
                         borderBottomWidth: 1,
                         borderColor: ColorUtil.Disablebutton,
-                        paddingBottom: ResponsiveUtil.height(5)
+                        padding: ResponsiveUtil.height(8),
+                        backgroundColor: ColorUtil.Purple,
+                        borderRadius: 5
+                        
                     }}>
                         <View style={{
                             flexDirection: "row",
                             justifyContent: "space-between",
-                            alignItems: "center"
+                            alignItems: "center",
+                            // backgroundColor:"yellow",
+                            // paddingTop: ResponsiveUtil.height(10),
                         }}>
                             <View>
                                 <View style={{
@@ -142,7 +184,8 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
                                     <Text numberOfLines={1} style={styles.drname}>Name: </Text>
                                     <Text numberOfLines={1} style={{
                                         fontFamily: "Nunito-Regular",
-                                        fontSize: ResponsiveUtil.font(18)
+                                        fontSize: ResponsiveUtil.font(18),
+                                        color:"#FFFFFF"
                                     }}>{dr.Name}</Text>
                                 </View>
                                 <View style={{
@@ -150,11 +193,16 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
                                 }}>
                                     <Text style={{
                                         fontFamily: "Nunito-Bold",
-                                        fontSize: ResponsiveUtil.font(16)
+                                        fontSize: ResponsiveUtil.font(16),
+                                        color:"#FFFFFF"
+
+                                        
                                     }}>Designation: </Text>
                                     <Text numberOfLines={1} style={{
                                         fontFamily: "Nunito-Regular",
-                                        fontSize: ResponsiveUtil.font(16)
+                                        fontSize: ResponsiveUtil.font(16),
+                                        color:"#FFFFFF"
+
                                     }}>{dr.Designation}</Text>
                                 </View>
                                 <View style={{
@@ -162,11 +210,15 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
                                 }}>
                                     <Text style={{
                                         fontFamily: "Nunito-Bold",
-                                        fontSize: ResponsiveUtil.font(16)
+                                        fontSize: ResponsiveUtil.font(16),
+                                        color:"#FFFFFF"
+
                                     }}>Experience: </Text>
                                     <Text numberOfLines={1} style={{
                                         fontFamily: "Nunito-Regular",
-                                        fontSize: ResponsiveUtil.font(16)
+                                        fontSize: ResponsiveUtil.font(16),
+                                        color:"#FFFFFF"
+
                                     }}>{dr.MobileNo}</Text>
                                 </View>
 
@@ -174,10 +226,10 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
 
 
                             <View>
-                            <AntDesign
-                            onPress={() => {
-                            shareUser()
-                            }} name="sharealt" color={ColorUtil.Purple} size={25} />
+                                <AntDesign
+                                onPress={() => {
+                                shareUser()
+                                }} name="sharealt" color={ColorUtil.white} size={25} />
                             </View>
 
 
@@ -187,15 +239,24 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
 
 
                     </View>
-                    <View style={{
+                
+                
+                    <ScrollView>
+                        <View style={{
                         marginHorizontal: ResponsiveUtil.width(10),
-                        marginTop: ResponsiveUtil.height(20)
+                        marginTop: ResponsiveUtil.height(20),
+                        // backgroundColor:"yellow",
                     }}>
-                        <Text style={styles.drnumber}>
-                            {dr.About}
-                        </Text>
-                    </View>
-                </ScrollView>
+                            <Text style={styles.drnumber}>
+                                {dr.About}  
+                            </Text>
+                        </View>
+                    </ScrollView>
+                    
+                </View>
+
+
+
             </View>
         </View>
     )
@@ -210,7 +271,8 @@ const styles = StyleSheet.create({
     },
     drname: {
         fontFamily: "Nunito-Bold",
-        fontSize: ResponsiveUtil.font(18)
+        fontSize: ResponsiveUtil.font(18),
+        color: ColorUtil.white
     },
     drnumber: {
         fontFamily: "Nunito-Regular",

@@ -107,6 +107,12 @@ const HomeScreen = ({ navigation }) => {
 
     const submit = ()=>{
         console.log(fcmTokenf,"Fcccccccc")
+
+        if(name.length == 0 || mobile.length == 0){
+            ToastAndroid.show("Please fill the required details", ToastAndroid.SHORT);
+            // return;
+        }
+
         if(name.length>0 && mobile.length>0 && fcmTokenf.length>0){
 
 
@@ -611,9 +617,10 @@ const HomeScreen = ({ navigation }) => {
                         paddingHorizontal:20,
                         borderRadius:5,
                         paddingBottom:20,
+                        paddingTop:20,
 
                      }}>
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                         onPress={() => toggleModal()}
                         style={{
                             alignItems: "flex-end",
@@ -625,7 +632,7 @@ const HomeScreen = ({ navigation }) => {
                             alignItems:'center'
                         }}>
                             <AntDesign name="closecircleo" color={ColorUtil.Purple} size={25} />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
 
 
