@@ -16,19 +16,16 @@ const NewsDetailScreen = ({ route,navigation }) => {
     const [healthtipsdata, sethealthtipsdata] = useState([])
     const [news, setnews] = useState({})
 
-
     const getAllNews = () => {
         // setloading(true)
-        axios.get(ApiUtils.News).then(data => {
+        axios.get(ApiUtils.getNewsByID+id).then(data => {
             const maindata = data.data;
-            console.log(maindata)
+            console.log(maindata,'maindata')
             // setloading(false)
-            sethealthtipsdata(maindata.data)
-            setnews(maindata.data[id])
+            // sethealthtipsdata(maindata.data)
+            setnews(maindata.data[0])
             console.log('ffffffffffffffffff')
-        
             console.log(healthtipsdata,"healthtipsdata---------------------------") 
-    
         }).catch(e => {
             console.log(e)
         })
@@ -36,15 +33,12 @@ const NewsDetailScreen = ({ route,navigation }) => {
 
 
     useEffect(()=>{
-
         getAllNews()
-
-
     },[])
 
 
 
-    console.log(news)
+    console.log(news)   
     // console.log(news.id)
     const generateLink = async () => {
         try {
@@ -82,10 +76,15 @@ const NewsDetailScreen = ({ route,navigation }) => {
 
 
 
+    if(!news){
+        return null
+    }
 
 
 
     return (
+        news &&
+
         <View style={styles.container}>
 
 

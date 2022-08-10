@@ -19,27 +19,20 @@ const NewsDetailScreen = ({ route,navigation }) => {
 
     const getAllNews = () => {
         // setloading(true)
-        axios.get(ApiUtils.NewsAll).then(data => {
+        axios.get(ApiUtils.getNewsByID+id).then(data => {
             const maindata = data.data;
             console.log(maindata)
             // setloading(false)
             sethealthtipsdata(maindata.data)
-            setnews(maindata.data[id])
-            console.log('ffffffffffffffffff')
-        
+            setnews(maindata.data[0])
+            console.log('ffffffffffffffffff')   
             console.log(healthtipsdata,"healthtipsdata---------------------------") 
-    
         }).catch(e => {
             console.log(e)
         })
     }
-
-
     useEffect(()=>{
-
         getAllNews()
-
-
     },[])
 
 

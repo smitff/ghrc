@@ -29,10 +29,10 @@ const DoctorsDetailScreen = ({ route, navigation }) => {
     const getDoctordetail = async () => {
 
         // setloading(true)
-        await axios.get(ApiUtils.Doctorsfull).then(data => {
+        await axios.get(ApiUtils.getDoctorByID+id).then(data => {
             const maindata = data.data;
             console.log(maindata)
-            setdr(maindata.data[id])
+            setdr(maindata.data[0])
             // setloading(false)
 
         }).catch(e => {

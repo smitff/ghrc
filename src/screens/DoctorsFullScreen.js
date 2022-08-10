@@ -65,7 +65,7 @@ const DoctorsFullScreen = ({navigation}) => {
                  return (
                      <Pressable
                          onPress={() => {
-                             navigation.navigate("DoctorsDetailScreen", { id: index })
+                             navigation.navigate("DoctorsDetailScreen", { id: item.id })
                          }}
                          style={{
                              // width: (Dimensions.get('screen').width) / 2.5,

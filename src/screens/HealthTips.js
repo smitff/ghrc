@@ -10,7 +10,6 @@ const HealthTips = ({navigation}) => {
     const [loading, setloading] = useState(true)
     useEffect(() => {
         getdata()
-
     }, [])
     const getdata = async () => {
         setloading(true)
@@ -19,7 +18,6 @@ const HealthTips = ({navigation}) => {
             console.log(maindata)
             setloading(false)
             sethealthtipsdata(maindata.data)
-
         }).catch(e => {
             console.log(e)
         })
@@ -43,9 +41,7 @@ const HealthTips = ({navigation}) => {
                                fontSize:ResponsiveUtil.font(20) ,
                                marginLeft:ResponsiveUtil.width(20)
                         }]} numberOfLines={1}>Health Tips</Text>
-                              
                 </View>
-    
               {
                   loading ? <ActivityIndicator style={{marginTop:ResponsiveUtil.height(30)}} color={ColorUtil.Purple} size={25}  />
               :   
@@ -66,7 +62,7 @@ const HealthTips = ({navigation}) => {
                   return (
                       <Pressable
                       onPress={() => {
-                        navigation.navigate('HealthTipsDetailScreen', { id: index })
+                        navigation.navigate('HealthTipsDetailScreen', { id: item.id })
                     }}
                           style={{
                               width: ((Dimensions.get('screen').width) / 2) - 20,

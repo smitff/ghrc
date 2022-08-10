@@ -17,6 +17,10 @@ export const ApiUtils = {
     Query:`${serverurl}Query.aspx`,
     // Donationurl:`https://pages.razorpay.com/pl_HsYrMTZUoJPyKg/view`,
     Donationurl:`http://global-app.in/razor.aspx`,
+
+    getNewsByID: `${serverurl}NewsByID.aspx?ID=`,
+    getDoctorByID: `${serverurl}DoctorByID.aspx?id=`,
+    getHealthTipsByID: `${serverurl}HealthTipsByID.aspx?id=`
     
 }
 

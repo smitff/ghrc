@@ -148,6 +148,8 @@ const HomeScreen = ({ navigation }) => {
                 setnewsdata(maindata.data)
                 setnewsloading(false)
             }
+            console.log(maindata.data, "newsdata&&&&&&&&&")
+
         }).catch(e => {
             console.log(e)
         })
@@ -314,7 +316,7 @@ const HomeScreen = ({ navigation }) => {
                                 return (
                                     <Pressable
                                         onPress={() => {
-                                            navigation.navigate("HomeNews", { id: index })
+                                            navigation.navigate("HomeNews", { id: item.id })
                                         }}
                                         style={{
                                             width: (Dimensions.get('screen').width) / 1.6,
@@ -367,7 +369,7 @@ const HomeScreen = ({ navigation }) => {
                                 return (
                                     <Pressable
                                         onPress={() => {
-                                            navigation.navigate("HomeDoctors", { id: index })
+                                            navigation.navigate("HomeDoctors", { id: item.id })
                                         }}
                                         style={{
                                             // width: (Dimensions.get('screen').width) / 2.5,
@@ -446,7 +448,7 @@ const HomeScreen = ({ navigation }) => {
                                 return (
                                     <Pressable
                                         onPress={() => {
-                                            navigation.navigate('HomeHealthTips', { id: index })
+                                            navigation.navigate('HomeHealthTips', { id: item.id })
                                         }}
                                         style={{
                                             width: ((Dimensions.get('screen').width) / 2) - 20,

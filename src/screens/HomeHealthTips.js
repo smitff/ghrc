@@ -27,11 +27,11 @@ const HealthTipsDetailScreen = ({ route, navigation }) => {
     const getHealthTipdetail = async () => {
 
         // setloading(true)
-        await axios.get(ApiUtils.HealthTps).then(data => {
+        await axios.get(ApiUtils.getHealthTipsByID+id).then(data => {
             const maindata = data.data;
             console.log(maindata)
             
-            sethealthtip(maindata.data[id])
+            sethealthtip(maindata.data[0])
 
 
         }).catch(e => {
